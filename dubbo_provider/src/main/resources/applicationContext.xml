@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+            http://www.springframework.org/schema/beans/spring-beans.xsd  
+            http://www.springframework.org/schema/context  
+            http://www.springframework.org/schema/context/spring-context.xsd  http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<!-- 开启注解扫描 -->
+	<context:annotation-config />
+
+	<!--引入配置属性文件 -->
+	<context:property-placeholder location="classpath:config.properties" />
+
+	<!--自动扫描含有@Service将其注入为bean 和@Repository注入 -->
+	<context:component-scan base-package="com.demo.dubbo.service,com.demo.dao" />
+	<!-- 定时任务 -->
+	<!-- <import resource="applicationContext-task.xml" /> 注释2016年5月3日19:08:25，启动定时任务去掉注释即可 -->
+	<!-- 引入Shiro -->
+	<!-- <import resource="applicationContext-shiro.xml" /> -->
+
+	<!-- 引入Apache Solr搜索 -->
+	<!-- <import resource="applicationContext-solr.xml" /> -->
+
+	<!-- 引入阿里云OSS存储服务 -->
+	<!-- <import resource="applicationContext-aliyunoss.xml" /> -->
+
+	<!-- 引入ActiveMQ -->
+	<!-- <import resource="applicationContext-activemq.xml" /> -->
+
+
+	<import resource="dubbo-provider.xml" />
+
+
+	<!--添加aop支持 -->
+	<aop:aspectj-autoproxy />
+</beans>
