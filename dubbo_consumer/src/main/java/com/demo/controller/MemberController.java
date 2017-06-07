@@ -39,4 +39,22 @@ public class MemberController extends BaseController {
 		return super.success(pageInfo);
 	}
 
+	@RequestMapping(value = "add", method = RequestMethod.GET)
+	public String add() {
+		return "/member/add";
+	}
+
+	@RequestMapping(value = "save", method = RequestMethod.POST)
+	@ResponseBody
+	public Object save(Member member) {
+		memberService.save(member);
+		return super.success("保存成功");
+	}
+	
+	@RequestMapping(value = "checkUsername", method = {RequestMethod.GET,RequestMethod.POST})
+	@ResponseBody
+	public Object checkUsername(@RequestParam String username) {
+		return "true";
+	}
+
 }

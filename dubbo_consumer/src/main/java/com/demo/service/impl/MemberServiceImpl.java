@@ -1,5 +1,6 @@
 package com.demo.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -29,14 +30,16 @@ public class MemberServiceImpl implements MemberService {
 		return null;
 	}
 
-	public int addMember(Member member) {
+	public int save(Member member) {
 		// TODO Auto-generated method stub
-		return 0;
+		member.setCreateTime(new Date());
+		member.setUpdateTime(new Date());
+		return memberDubboService.insert(member);
 	}
 
 	public int updateMember(Member member) {
 		// TODO Auto-generated method stub
-		return 0;
+		return memberDubboService.updateByPrimaryKeySelective(member);
 	}
 
 	public Member findMemberById(Integer id) {

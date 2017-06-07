@@ -10,8 +10,9 @@
 
 	<!-- 使用zookeeper注册中心暴露服务地址 -->
 	<!-- 单机 -->
-	<!-- <dubbo:registry address="zookeeper://192.168.1.100:2181" /> -->
-	<dubbo:registry address="zookeeper://172.19.110.7:2181?backup=172.19.110.8:2181,172.19.110.9:2181" />
+	<dubbo:registry address="zookeeper://192.168.1.100:2181" />
+	<!-- 集群 -->
+	<!-- <dubbo:registry address="zookeeper://172.19.110.7:2181?backup=172.19.110.8:2181,172.19.110.9:2181" /> -->
 
 	<!-- 引入远程服务代理接口 -->
 	<import resource="dubbo-consumer-service.xml" />

@@ -15,7 +15,7 @@ import com.github.pagehelper.PageInfo;
 public interface MemberService {
 	public List<Member> getMembers();
 
-	public int addMember(Member member);
+	public int save(Member member);
 
 	public int updateMember(Member member);
 
